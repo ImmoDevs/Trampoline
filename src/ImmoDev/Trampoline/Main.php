@@ -5,9 +5,9 @@ namespace ImmoDev\Trampoline;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\PlayerMoveEvent;
-use pocketmine\player\Player;
 use pocketmine\math\Vector3;
 use pocketmine\block\BlockTypeIds;
+use pocketmine\event\entity\EntityDamageEvent;
 
 class Main extends PluginBase implements Listener {
 
@@ -29,4 +29,10 @@ class Main extends PluginBase implements Listener {
 	public function onDisable(): void {
         $this->getLogger()->info("Plugin deactived");
     }
+
+	public function onDamage(EntityDamageEvent $event): void {
+		if ($event->getcause () === EntityDamageEvent::CAUSE_FALL) {
+			$event->cancel();
+		}
+	}
 }
