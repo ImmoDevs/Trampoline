@@ -28,17 +28,17 @@ class Main extends PluginBase implements Listener {
 	public function onMove(PlayerMoveEvent $event): void {
 		$player = $event->getPlayer();
 		$pos = $player->getPosition()->subtract(0, 1, 0);
-        $block = $player->getWorld()->getBlock($pos);
-        if ($block->getTypeId() == BlockTypeIds::SLIME) {
+		$block = $player->getWorld()->getBlock($pos);
+		if ($block->getTypeId() == BlockTypeIds::SLIME) {
 			$power = $this->getConfig()->get('trampoline_power', 0.8);
-            $motion = new Vector3(0, $power, 0);
+			$motion = new Vector3(0, $power, 0);
 			$player->setMotion($motion);
-
+			
 			$particle = new HappyVillagerParticle();
 			$player->getWorld()->addParticle($player->getPosition(), $particle);
-        }
+		}
 	}
-
+	
 	public function onDamage(EntityDamageEvent $event): void {
 		if ($event->getcause () === EntityDamageEvent::CAUSE_FALL) {
 			$event->cancel();
