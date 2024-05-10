@@ -5,7 +5,7 @@ namespace ImmoDev\Trampoline;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
-use pocketmine\event\PlayerMoveEvent;
+use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\world\particle\HappyVillagerParticle;
 use pocketmine\math\Vector3;
 use pocketmine\block\BlockTypeIds;
