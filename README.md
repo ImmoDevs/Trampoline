@@ -1,7 +1,7 @@
 # Trampoline Plugin
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://semver.org
+[![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![VERSION](https://img.shields.io/badge/version-1.0.0-green.svg)](https://semver.org)
 
 This is a PocketMine plugin that simulates a trampoline effect using slime blocks. When a player steps on a slime block, they will be propelled upwards with a configurable power. Additionally, a particle effect will be displayed at the player's position when they bounce on the trampoline.
 
