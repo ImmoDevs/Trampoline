@@ -2,7 +2,7 @@
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![VERSION](https://img.shields.io/badge/version-1.0.0-green.svg)](https://semver.org)
-[![DOWNLOAD](https://img.shields.io/github/downloads/ImmoDevs/Trampoline-PM5/latest/total?sort=semver)](https://semver.org)
+[![DOWNLOAD](https://img.shields.io/github/downloads/ImmoDevs/Trampoline-PM5/latest/total?sort=semver)](https://github.com/ImmoDevs/Trampoline-PM5/releases/tag/Pmmp5)
 
 This is a PocketMine plugin that simulates a trampoline effect using slime blocks. When a player steps on a slime block, they will be propelled upwards with a configurable power. Additionally, a particle effect will be displayed at the player's position when they bounce on the trampoline.
 
