@@ -45,7 +45,7 @@ Adjust the `trampoline_power` value to change the strength of the trampoline eff
 - `EntityDamageEvent`: Cancels fall damage for players, preventing them from taking fall damage when bouncing on the trampoline.
 
 ## Installation
-1. Download this plugin in the new release or [Download Here](https://github.com/ImmoDevs/Trampoline-PM5/releases/download/Pmmp5/Trampoline-PM5.phar)
+1. Download this plugin in the new release or [Download Here](https://github.com/ImmoDevs/Trampoline-PM5/releases/download/v2.0.0/Trampoline-PM5.v2.0.0.phar)
 2. Place the plugin file in the PocketMine `plugins` directory.
 3. Start or restart your PocketMine server.
 
