@@ -1,5 +1,18 @@
----
-# Trampoline Plugin By ImmoDev
+# Trampoline Plugin Configuration
 
-# Set Trampoline Power
+# Set the power of your Trampoline here
+# Recommended values: 0.5 (low) to 1.5 (high)
 trampoline_power: 0.8
+
+# Specify the block type that acts as the trampoline
+# Use block identifiers like "slime_block"
+trampoline_block: "slime_block"
+
+# Enable or disable particle effects when bouncing
+# true  - Particles are enabled
+# false - Particles are disabled
+slime_particle: true
+
+# If you enjoy this plugin, please give it a star and provide feedback on GitHub:
+# https://github.com/ImmoDevs/Trampoline-PM5
+# If you encounter any issues, errors, or bugs, please report them in the Issues section on GitHub.

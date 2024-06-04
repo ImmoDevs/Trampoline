@@ -3,45 +3,65 @@
 namespace ImmoDev\Trampoline;
 
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
-use pocketmine\event\player\PlayerMoveEvent;
-use pocketmine\world\particle\HappyVillagerParticle;
 use pocketmine\math\Vector3;
-use pocketmine\block\BlockTypeIds;
+use pocketmine\world\particle\HappyVillagerParticle;
 use pocketmine\event\entity\EntityDamageEvent;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase implements Listener
+{
+    private Config $config;
 
-	public $config;
+    private float $defaultPower = 0.8;
+    private string $defaultBlock = "slime_block";
+    private bool $defaultParticle = true;
 
-	public function onEnable(): void {
-		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->saveDefaultConfig();
-		$this->getLogger()->info("Plugin Actived");
-	}
+    public function onEnable(): void
+    {
+        $this->saveDefaultConfig();
+        $this->config = $this->getConfig();
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
-	public function onDisable(): void {
-		$this->getLogger()->info("Plugin DeActived");
-	}
+        $trampolinePower = $this->config->get('trampoline_power', $this->defaultPower);
+        $trampolineBlock = $this->config->get('trampoline_block', $this->defaultBlock);
+        $slimeParticle = $this->config->get('slime_particle', $this->defaultParticle);
 
-	public function onMove(PlayerMoveEvent $event): void {
-		$player = $event->getPlayer();
-		$pos = $player->getPosition()->subtract(0, 1, 0);
-		$block = $player->getWorld()->getBlock($pos);
-		if ($block->getTypeId() == BlockTypeIds::SLIME) {
-			$power = $this->getConfig()->get('trampoline_power', 0.8);
-			$motion = new Vector3(0, $power, 0);
-			$player->setMotion($motion);
-			
-			$particle = new HappyVillagerParticle();
-			$player->getWorld()->addParticle($player->getPosition(), $particle);
-		}
-	}
-	
-	public function onDamage(EntityDamageEvent $event): void {
-		if ($event->getcause () === EntityDamageEvent::CAUSE_FALL) {
-			$event->cancel();
-		}
-	}
+        // Debugging log
+        $this->getLogger()->info("§aTrampoline Power: §c" . $trampolinePower);
+        $this->getLogger()->info("§aTrampoline Block: §c" . $trampolineBlock);
+        this->getLogger()->info("§aSlime Particle: " . ($slimeParticle ? "§aEnabled" : "§cDisabled")); 
+     }
+    public function onPlayerMove(PlayerMoveEvent $event): void
+    {
+        $player = $event->getPlayer();
+        $pos = $player->getPosition()->subtract(0, 1, 0);
+        $block = $player->getWorld()->getBlock($pos);
+
+        $trampolineBlock = strtolower($this->config->get('trampoline_block', $this->defaultBlock));
+
+        if (strtolower(str_replace(" ", "_", $block->getName())) === $trampolineBlock) {
+            $power = $this->config->get('trampoline_power', $this->defaultPower);
+            $motion = new Vector3(0, $power, 0);
+            $player->setMotion($motion);
+
+            if ($this->config->get('slime_particle', $this->defaultParticle)) {
+                $particle = new HappyVillagerParticle();
+                $player->getWorld()->addParticle($player->getPosition(), $particle);
+            }
+        }
+    }
+
+    public function onDisable(): void
+    {
+        $this->getLogger()->info("DeActived");
+    }
+
+    public function onDamage(EntityDamageEvent $event): void
+    {
+        if ($event->getCause() === EntityDamageEvent::CAUSE_FALL) {
+            $event->cancel();
+        }
+    }
 }
