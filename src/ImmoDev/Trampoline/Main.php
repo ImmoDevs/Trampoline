@@ -31,7 +31,7 @@ class Main extends PluginBase implements Listener
         // Debugging log
         $this->getLogger()->info("§aTrampoline Power: §c" . $trampolinePower);
         $this->getLogger()->info("§aTrampoline Block: §c" . $trampolineBlock);
-        this->getLogger()->info("§aSlime Particle: " . ($slimeParticle ? "§aEnabled" : "§cDisabled")); 
+        $this->getLogger()->info("§aSlime Particle: " . ($slimeParticle ? "§aEnabled" : "§cDisabled")); 
      }
     public function onPlayerMove(PlayerMoveEvent $event): void
     {
