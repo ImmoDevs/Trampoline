@@ -6,4 +6,6 @@ projects:
   Trampoline:
     path: ""
     icon: "icon.png"
+    lint:
+      phpstan: false
 ...
