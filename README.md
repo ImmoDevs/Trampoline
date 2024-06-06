@@ -9,6 +9,8 @@
 
 Trampoline-PM5 is a powerful and configurable plugin for PocketMine-MP, a Minecraft server software. This plugin introduces a fun and interactive trampoline effect using slime blocks, enhancing the gameplay experience by allowing players to bounce high into the air when they step on specific blocks. It's a great addition for servers that want to add unique and entertaining features for their players.
 
+**Important Note:** This plugin forcefully disables fall damage for the entire server to ensure players do not get hurt while using the trampolines.
+
 ## Why Use Trampoline-PM5?
 
 - **Enhanced Gameplay**: Adds a dynamic and engaging element to your server, making it more fun for players.
@@ -72,4 +74,4 @@ Imagine setting up a fun parkour course where players need to bounce between pla
 
 This plugin was developed by ImmoDev. We appreciate your support and feedback. If you enjoy using Trampoline-PM5, please consider giving it a star on GitHub and providing feedback or reporting any issues you encounter.
 
-For more information about PocketMine plugins, visit the [PocketMine website](https://doc.pmmp.io/en/rtfd/).
+For more information about PocketMine plugins, visit the [PocketMine website](https://doc.pmmp.io/en/rtfd/)
