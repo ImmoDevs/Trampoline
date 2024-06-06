@@ -23,16 +23,8 @@ class Main extends PluginBase implements Listener
         $this->saveDefaultConfig();
         $this->config = $this->getConfig();
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    }
 
-        $trampolinePower = $this->config->get('trampoline_power', $this->defaultPower);
-        $trampolineBlock = $this->config->get('trampoline_block', $this->defaultBlock);
-        $slimeParticle = $this->config->get('slime_particle', $this->defaultParticle);
-
-        // Debugging log
-        $this->getLogger()->info("§aTrampoline Power: §c" . $trampolinePower);
-        $this->getLogger()->info("§aTrampoline Block: §c" . $trampolineBlock);
-        $this->getLogger()->info("§aSlime Particle: " . ($slimeParticle ? "§aEnabled" : "§cDisabled")); 
-     }
     public function onPlayerMove(PlayerMoveEvent $event): void
     {
         $player = $event->getPlayer();
@@ -51,11 +43,6 @@ class Main extends PluginBase implements Listener
                 $player->getWorld()->addParticle($player->getPosition(), $particle);
             }
         }
-    }
-
-    public function onDisable(): void
-    {
-        $this->getLogger()->info("DeActived");
     }
 
     public function onDamage(EntityDamageEvent $event): void
