@@ -1,4 +1,4 @@
-# Trampoline-PM5
+# Trampoline
 
 [![Trampoline-PM5](https://img.shields.io/badge/Trampoline_PM5-v2.0.0-brightgreen.svg)](https://github.com/ImmoDevs/Trampoline-PM5)
 [![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
